@@ -5,10 +5,12 @@ import heroImg03 from "../assets/images/hero-img03.png";
 import icon01 from "../assets/images/icon01.png";
 import icon02 from "../assets/images/icon02.png";
 import icon03 from "../assets/images/icon03.png";
+import featureImg from "../assets/images/feature-img.png";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import About from "../components/About";
-import ServiceList from "../components/Services/ServiceList"
+import ServiceList from "../components/Services/ServiceList";
+import DoctorList from "../components/Doctors/DoctorList";
 
 const Home = () => {
   return (
@@ -74,7 +76,9 @@ const Home = () => {
               Delivering Premier Health Excellence
             </h2>
             <p className="text_para text-center">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti quidem sint laboriosam facilis non vero voluptatem vitae voluptas aliquid.
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+              deleniti quidem sint laboriosam facilis non vero voluptatem vitae
+              voluptas aliquid.
             </p>
           </div>
 
@@ -113,7 +117,9 @@ const Home = () => {
                   Find a Location
                 </h2>
                 <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti quidem sint laboriosam facilis non vero voluptatem vitae voluptas aliquid.
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+                  deleniti quidem sint laboriosam facilis non vero voluptatem
+                  vitae voluptas aliquid.
                 </p>
 
                 <Link
@@ -134,7 +140,9 @@ const Home = () => {
                   Book Appointment
                 </h2>
                 <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti quidem sint laboriosam facilis non vero voluptatem vitae voluptas aliquid.
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+                  deleniti quidem sint laboriosam facilis non vero voluptatem
+                  vitae voluptas aliquid.
                 </p>
 
                 <Link
@@ -149,18 +157,67 @@ const Home = () => {
         </div>
       </section>
 
-     <About /> 
+      <About />
 
-     <section>
+      <section>
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
             <h2 className="heading text-center">Our medical services</h2>
-            <p className="text_para text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti quidem sint laboriosam facilis non vero voluptatem vitae voluptas aliquid.</p>
+            <p className="text_para text-center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+              deleniti quidem sint laboriosam facilis non vero voluptatem vitae
+              voluptas aliquid.
+            </p>
           </div>
 
           <ServiceList />
         </div>
-     </section>
+      </section>
+
+      <section>
+        <div className="container">
+          <div className="flex items-center justify-between flex-col lg:flex-row">
+            <div className="xl:w-[670px]">
+              <h2 className="heading">
+                Get Virtual Treatment <br /> anytime
+              </h2>
+
+              <ul className="pl-4">
+                <li className="text_para">1.Lorem ipsum dolor sit amet.</li>
+                <li className="text_para">
+                  2. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Libero, animi!
+                </li>
+                <li className="text_para">
+                  3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
+                  enim quisquam vel ut quasi sunt.
+                </li>
+              </ul>
+              <Link to="/">
+                <button className="btn">Learn More</button>
+              </Link>
+            </div>
+
+            <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
+              <img src={featureImg} alt="feature" className="w-3/4" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">Our Great Doctors</h2>
+            <p className="text_para text-center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+              deleniti quidem sint laboriosam facilis non vero voluptatem vitae
+              voluptas aliquid.
+            </p>
+          </div>
+          <DoctorList />
+        </div>
+      </section>
     </>
   );
 };

@@ -1,12 +1,12 @@
-import doctor1 from "../images/doctor1.avif"
-import doctor2 from "../images/doctor2.jpg";
-import doctor3 from "../images/doctor3.jpg";
+import doctor1 from "../images/doctor-img01.png"
+import doctor2 from "../images/doctor-img02.png";
+import doctor3 from "../images/doctor-img03.png";
 
 export const doctors = [
   {
     id: "01",
-    name: "Dr. Emily Chen",
-    specialty: "Cardiology",
+    name: "Dr. McGurk Chen",
+    specialization: "Cardioloist",
     avgRating: 4.5,
     totalRating: 120,
     photo: doctor1,
@@ -16,7 +16,7 @@ export const doctors = [
   {
     id: "02",
     name: "Dr. Michael Patel",
-    specialty: "Dermatology",
+    specialization: "Dermatologist",
     avgRating: 4.8,
     totalRating: 292,
     photo: doctor2,
@@ -26,7 +26,7 @@ export const doctors = [
   {
     id: "03",
     name: "Dr. David Lee",
-    specialty: "Orthopedics",
+    specialization: "Orthopedics",
     avgRating: 4.6,
     totalRating: 231,
     photo: doctor3,

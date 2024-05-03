@@ -10,7 +10,7 @@
 
 @layer components{
     .container{
-        @apply max-w-full w-[1440px] px-5 mx-auto
+        @apply max-w-full w-[1440px] px-10 mx-auto
     }
 
     .btn{
@@ -19,7 +19,7 @@
     .heading{
         @apply text-[44px] leading-[54px] font-[700] text-headingColor;
     }
-    .text__para{
+    .text_para{
         @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px];
     }
     .header{
@@ -30,7 +30,7 @@
     }
 }
 
-@media only screen and(max-width: 813px){
+@media only screen and(max-width: 853px){
     .heading{
         @apply text-[26px] leading-[36px];
     }
