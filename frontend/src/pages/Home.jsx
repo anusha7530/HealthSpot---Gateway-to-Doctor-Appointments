@@ -8,6 +8,7 @@ import icon03 from "../assets/images/icon03.png";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import About from "../components/About";
+import ServiceList from "../components/Services/ServiceList"
 
 const Home = () => {
   return (
@@ -73,9 +74,7 @@ const Home = () => {
               Delivering Premier Health Excellence
             </h2>
             <p className="text_para text-center">
-              Experience top-notch medical care tailored just for you.COur
-              healthcare system is committed to your well-being, Today and
-              Always
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti quidem sint laboriosam facilis non vero voluptatem vitae voluptas aliquid.
             </p>
           </div>
 
@@ -114,9 +113,7 @@ const Home = () => {
                   Find a Location
                 </h2>
                 <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
-                  Experience top-notch medical care tailored just for you.COur
-                  healthcare system is committed to your well-being, Today and
-                  Always
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti quidem sint laboriosam facilis non vero voluptatem vitae voluptas aliquid.
                 </p>
 
                 <Link
@@ -137,9 +134,7 @@ const Home = () => {
                   Book Appointment
                 </h2>
                 <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">
-                  Experience top-notch medical care tailored just for you.COur
-                  healthcare system is committed to your well-being, Today and
-                  Always
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti quidem sint laboriosam facilis non vero voluptatem vitae voluptas aliquid.
                 </p>
 
                 <Link
@@ -155,6 +150,17 @@ const Home = () => {
       </section>
 
      <About /> 
+
+     <section>
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">Our medical services</h2>
+            <p className="text_para text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti quidem sint laboriosam facilis non vero voluptatem vitae voluptas aliquid.</p>
+          </div>
+
+          <ServiceList />
+        </div>
+     </section>
     </>
   );
 };
