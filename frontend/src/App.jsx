@@ -1,10 +1,9 @@
-import './app.css';
+import './App.css';
+import Layout from "./layout/Layout";
 
 const App = () => {
   return (
-    <div>
-      App
-    </div>
+    <Layout/>
   )
 }
 
