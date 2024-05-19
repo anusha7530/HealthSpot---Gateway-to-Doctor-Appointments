@@ -15,8 +15,24 @@ const corsOptions = {
 
 app.get('/',(req,res)=>{
     res.send('Api is working');
-})
+});
+
+mongoose.set('strictQuery',false)
+const connectDB = async () => {
+    try{
+        await mongoose.connect(process.env.MONGO_URL)
+        console.log('MongoDB is connected successfully');
+    }
+    catch{
+        console.log("MongoDB connection failed");
+    }
+}
+
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors(corsOptions));
 
 app.listen(port, ()=> {
+    connectDB();
     console.log('Server is running on port ' + port);
 })
