@@ -14,7 +14,7 @@ const app = express()
 const port = process.env.PORT || 8000
 
 const corsOptions = {
-    origin: false
+    origin: '*'
 }
 
 app.get('/',(req,res)=>{
