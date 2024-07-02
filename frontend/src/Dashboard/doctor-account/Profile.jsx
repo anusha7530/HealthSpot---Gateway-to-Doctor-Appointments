@@ -11,7 +11,6 @@ const Profile = () => {
     specialization: "",
     ticketPrice: 0,
     qualifications: [
-      { startingDate: "", endingDate: "", degree: "", university: "" },
     ],
     experiences: [
       { startingDate: "", endingDate: "", position: "", hospital: "" },
@@ -26,9 +25,53 @@ const Profile = () => {
   };
 
   const handleFileInputChange = (e) => {};
+
   const updateProfileHandler = async (e) => {
     e.preventDefault();
   };
+
+  const addItem = (key,item) => {
+    setFormData(prevFormData => ({...prevFormData, [key]:[...prevFormData[key],item]}))
+  }
+
+  const handleReusableInputChangeFunc = (key,index,event) => {
+    const {name,value} = event.target 
+    setFormData(prevFormData =>{
+      const updateItems = [...prevFormData[key]];
+      updateItems[index][name] = value
+      return {
+        ...prevFormData,
+        [key]: updateItems,
+      };
+    });
+  };
+
+  const deleteItem = (key,index) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [key]: prevFormData[key].filter((_,i) => i !== index),
+    }))
+  }
+
+  const addQualifications = (e) => {
+    e.preventDefault();
+    addItem("qualifications", {
+      startingDate: "",
+      endingDate: "",
+      degree: "PHD",
+      university: "Mercy Hospital",
+    });
+  };
+
+  const handleQualificationChange = (event,index) => {
+    handleReusableInputChangeFunc('qualifications',index,event);
+  }
+
+  const deleteQualifications = (e,index) => {
+    e.preventDefault();
+    deleteItem('qualifications',index)
+  }
+
   return (
     <div>
       <div>
@@ -143,6 +186,7 @@ const Profile = () => {
                         name="startingDate"
                         value={item.startingDate}
                         className="form_input"
+                        onChange={e => handleQualificationChange(e,index)}
                       />
                     </div>
                     <div>
@@ -152,6 +196,7 @@ const Profile = () => {
                         name="endingDate"
                         value={item.endingDate}
                         className="form_input"
+                        onChange={e => handleQualificationChange(e,index)}
                       />
                     </div>
                   </div>
@@ -163,6 +208,7 @@ const Profile = () => {
                         name="degree"
                         value={item.degree}
                         className="form_input"
+                        onChange={e => handleQualificationChange(e,index)}
                       />
                     </div>
                     <div>
@@ -172,18 +218,19 @@ const Profile = () => {
                         name="university"
                         value={item.university}
                         className="form_input"
+                        onChange={e => handleQualificationChange(e,index)}
                       />
                     </div>
                   </div>
 
-                  <button className="bg-red-600 p-2 rounded-full text-white text-[18px] mt-2 mb-[30px] cursor-pointer">
+                  <button onClick={e => deleteQualifications(e,index)} className="bg-red-600 p-2 rounded-full text-white text-[18px] mt-2 mb-[30px] cursor-pointer">
                     <AiOutlineDelete />
                   </button>
                 </div>
               </div>
             ))}
 
-            <button className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer">
+            <button onClick={addQualifications} className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer">
               Add Qualification
             </button>
           </div>
@@ -348,7 +395,9 @@ const Profile = () => {
               type="submit"
               className="bg-primaryColor text-white text-[18px] leading-[30px] w-full py-3 px-4 rounded-lg"
               onChange={updateProfileHandler}
-            >Update Profile</button>
+            >
+              Update Profile
+            </button>
           </div>
         </form>
       </div>
