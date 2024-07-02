@@ -10,11 +10,8 @@ const Profile = () => {
     gender: "",
     specialization: "",
     ticketPrice: 0,
-    qualifications: [
-    ],
-    experiences: [
-      { startingDate: "", endingDate: "", position: "", hospital: "" },
-    ],
+    qualifications: [],
+    experiences: [],
     timeSlots: [{ day: "", startingTime: "", endingTime: "" }],
     about: "",
     photo: null,
@@ -30,15 +27,18 @@ const Profile = () => {
     e.preventDefault();
   };
 
-  const addItem = (key,item) => {
-    setFormData(prevFormData => ({...prevFormData, [key]:[...prevFormData[key],item]}))
-  }
+  const addItem = (key, item) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [key]: [...prevFormData[key], item],
+    }));
+  };
 
-  const handleReusableInputChangeFunc = (key,index,event) => {
-    const {name,value} = event.target 
-    setFormData(prevFormData =>{
+  const handleReusableInputChangeFunc = (key, index, event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => {
       const updateItems = [...prevFormData[key]];
-      updateItems[index][name] = value
+      updateItems[index][name] = value;
       return {
         ...prevFormData,
         [key]: updateItems,
@@ -46,12 +46,12 @@ const Profile = () => {
     });
   };
 
-  const deleteItem = (key,index) => {
-    setFormData(prevFormData => ({
+  const deleteItem = (key, index) => {
+    setFormData((prevFormData) => ({
       ...prevFormData,
-      [key]: prevFormData[key].filter((_,i) => i !== index),
-    }))
-  }
+      [key]: prevFormData[key].filter((_, i) => i !== index),
+    }));
+  };
 
   const addQualifications = (e) => {
     e.preventDefault();
@@ -63,14 +63,33 @@ const Profile = () => {
     });
   };
 
-  const handleQualificationChange = (event,index) => {
-    handleReusableInputChangeFunc('qualifications',index,event);
-  }
+  const handleQualificationChange = (event, index) => {
+    handleReusableInputChangeFunc("qualifications", index, event);
+  };
 
-  const deleteQualifications = (e,index) => {
+  const deleteQualifications = (e, index) => {
     e.preventDefault();
-    deleteItem('qualifications',index)
-  }
+    deleteItem("qualifications", index);
+  };
+
+  const addExperiences = (e) => {
+    e.preventDefault();
+    addItem("experiences", {
+      startingDate: "",
+      endingDate: "",
+      position: "Senior Surgeon",
+      hospital: "Mercy Hospital",
+    });
+  };
+
+  const handleExperienceChange = (event, index) => {
+    handleReusableInputChangeFunc("experiences", index, event);
+  };
+
+  const deleteExperiences = (e, index) => {
+    e.preventDefault();
+    deleteItem("experiences", index);
+  };
 
   return (
     <div>
@@ -186,7 +205,7 @@ const Profile = () => {
                         name="startingDate"
                         value={item.startingDate}
                         className="form_input"
-                        onChange={e => handleQualificationChange(e,index)}
+                        onChange={(e) => handleQualificationChange(e, index)}
                       />
                     </div>
                     <div>
@@ -196,7 +215,7 @@ const Profile = () => {
                         name="endingDate"
                         value={item.endingDate}
                         className="form_input"
-                        onChange={e => handleQualificationChange(e,index)}
+                        onChange={(e) => handleQualificationChange(e, index)}
                       />
                     </div>
                   </div>
@@ -208,7 +227,7 @@ const Profile = () => {
                         name="degree"
                         value={item.degree}
                         className="form_input"
-                        onChange={e => handleQualificationChange(e,index)}
+                        onChange={(e) => handleQualificationChange(e, index)}
                       />
                     </div>
                     <div>
@@ -218,19 +237,25 @@ const Profile = () => {
                         name="university"
                         value={item.university}
                         className="form_input"
-                        onChange={e => handleQualificationChange(e,index)}
+                        onChange={(e) => handleQualificationChange(e, index)}
                       />
                     </div>
                   </div>
 
-                  <button onClick={e => deleteQualifications(e,index)} className="bg-red-600 p-2 rounded-full text-white text-[18px] mt-2 mb-[30px] cursor-pointer">
+                  <button
+                    onClick={(e) => deleteQualifications(e, index)}
+                    className="bg-red-600 p-2 rounded-full text-white text-[18px] mt-2 mb-[30px] cursor-pointer"
+                  >
                     <AiOutlineDelete />
                   </button>
                 </div>
               </div>
             ))}
 
-            <button onClick={addQualifications} className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer">
+            <button
+              onClick={addQualifications}
+              className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer"
+            >
               Add Qualification
             </button>
           </div>
@@ -248,6 +273,7 @@ const Profile = () => {
                         name="startingDate"
                         value={item.startingDate}
                         className="form_input"
+                        onChange={(e) => handleExperienceChange(e, index)}
                       />
                     </div>
                     <div>
@@ -257,6 +283,7 @@ const Profile = () => {
                         name="endingDate"
                         value={item.endingDate}
                         className="form_input"
+                        onChange={(e) => handleExperienceChange(e, index)}
                       />
                     </div>
                   </div>
@@ -268,6 +295,7 @@ const Profile = () => {
                         name="position"
                         value={item.position}
                         className="form_input"
+                        onChange={(e) => handleExperienceChange(e, index)}
                       />
                     </div>
                     <div>
@@ -277,18 +305,25 @@ const Profile = () => {
                         name="hospital"
                         value={item.hospital}
                         className="form_input"
+                        onChange={(e) => handleExperienceChange(e, index)}
                       />
                     </div>
                   </div>
 
-                  <button className="bg-red-600 p-2 rounded-full text-white text-[18px] mt-2 mb-[30px] cursor-pointer">
+                  <button
+                    onClick={(e) => deleteExperiences(e, index)}
+                    className="bg-red-600 p-2 rounded-full text-white text-[18px] mt-2 mb-[30px] cursor-pointer"
+                  >
                     <AiOutlineDelete />
                   </button>
                 </div>
               </div>
             ))}
 
-            <button className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer">
+            <button
+              onClick={addExperiences}
+              className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer"
+            >
               Add Experience
             </button>
           </div>
