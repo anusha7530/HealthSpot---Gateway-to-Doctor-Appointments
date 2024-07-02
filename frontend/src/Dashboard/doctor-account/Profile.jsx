@@ -12,7 +12,7 @@ const Profile = () => {
     ticketPrice: 0,
     qualifications: [],
     experiences: [],
-    timeSlots: [{ day: "", startingTime: "", endingTime: "" }],
+    timeSlots: [],
     about: "",
     photo: null,
   });
@@ -89,6 +89,24 @@ const Profile = () => {
   const deleteExperiences = (e, index) => {
     e.preventDefault();
     deleteItem("experiences", index);
+  };
+
+  const addTimeSlots = (e) => {
+    e.preventDefault();
+    addItem("timeSlots", {
+      day: "Sunday",
+      startingTime: "10:00",
+      endingTime: "04:30",
+    });
+  };
+
+  const handleTimeSlotChange = (event, index) => {
+    handleReusableInputChangeFunc("timeSlots", index, event);
+  };
+
+  const deleteTimeSlots = (e, index) => {
+    e.preventDefault();
+    deleteItem("timeSlots", index);
   };
 
   return (
@@ -340,6 +358,7 @@ const Profile = () => {
                         name="day"
                         value={item.day}
                         className="form_input py-3.5"
+                        onChange={(e) => handleTimeSlotChange(e, index)}
                       >
                         <option value="">Select</option>
                         <option value="saturday">Saturday</option>
@@ -358,6 +377,7 @@ const Profile = () => {
                         name="startingTime"
                         value={item.startingTime}
                         className="form_input"
+                        onChange={(e) => handleTimeSlotChange(e, index)}
                       />
                     </div>
                     <div>
@@ -367,10 +387,14 @@ const Profile = () => {
                         name="endingTime"
                         value={item.endingTime}
                         className="form_input"
+                        onChange={(e) => handleTimeSlotChange(e, index)}
                       />
                     </div>
                     <div className="flex items-center">
-                      <button className="bg-red-600 p-2 rounded-full text-white text-[18px] cursor-pointer mt-6">
+                      <button
+                        className="bg-red-600 p-2 rounded-full text-white text-[18px] cursor-pointer mt-6"
+                        onClick={(e) => deleteTimeSlots(e, index)}
+                      >
                         <AiOutlineDelete />
                       </button>
                     </div>
@@ -379,7 +403,10 @@ const Profile = () => {
               </div>
             ))}
 
-            <button className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer">
+            <button
+              className="bg-[#000] py-2 px-5 rounded text-white h-fit cursor-pointer"
+              onClick={addTimeSlots}
+            >
               Add Time Slots
             </button>
           </div>
