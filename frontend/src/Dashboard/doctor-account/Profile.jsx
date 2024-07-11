@@ -21,7 +21,7 @@ const Profile = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFileInputChange = (e) => {};
+  const handleFileInputChange = async (e) => {};
 
   const updateProfileHandler = async (e) => {
     e.preventDefault();
