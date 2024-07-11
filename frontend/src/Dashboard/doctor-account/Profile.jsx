@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
+import uploadImageToCloudinary from "../../utils/uploadCloudinary";
+import { BASE_URL, token } from "../../config";
+import { toast } from "react-toastify";
 
-const Profile = () => {
+const Profile = ({ doctorData }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    password: "",
     phone: "",
     bio: "",
     gender: "",
@@ -17,14 +21,55 @@ const Profile = () => {
     photo: null,
   });
 
+  useEffect(() => {
+    setFormData({
+      name: doctorData?.name,
+      email: doctorData?.email,
+      password: doctorData?.password,
+      phone: doctorData?.phone,
+      bio: doctorData?.bio,
+      gender: doctorData?.gender,
+      specialization: doctorData?.specialization,
+      ticketPrice: doctorData?.ticketPrice,
+      qualifications: doctorData?.qualifications,
+      experiences: doctorData?.experiences,
+      timeSlots: doctorData?.timeSlots,
+      about: doctorData?.about,
+      photo: doctorData?.photo,
+    });
+  },[doctorData])
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFileInputChange = async (e) => {};
+  const handleFileInputChange = async (e) => {
+    const file = e.target.files[0];
+    const data = await uploadImageToCloudinary(file);
+    setFormData({ ...formData, photo: data?.url });
+  };
 
   const updateProfileHandler = async (e) => {
     e.preventDefault();
+    try {
+      const res = await fetch(`${BASE_URL}/doctors/${doctorData._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+           Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw Error(result.message);
+      }
+
+      toast.success(result.message);
+    } catch (err) {
+      toast.error(err.message);
+    }
   };
 
   const addItem = (key, item) => {
@@ -115,7 +160,7 @@ const Profile = () => {
         <h2 className="text-headingColor font-bold text-[24px] leading-9 mb-10">
           Profile Information
         </h2>
-        <form>
+        <form onSubmit={updateProfileHandler}>
           <div className="mb-5">
             <p className="form_label">Name*</p>
             <input
@@ -138,7 +183,7 @@ const Profile = () => {
               className="form_input"
               readOnly
               aria-readonly
-              disabled="true"
+              disabled={true}
             />
           </div>
           <div className="mb-5">
@@ -456,7 +501,6 @@ const Profile = () => {
             <button
               type="submit"
               className="bg-primaryColor text-white text-[18px] leading-[30px] w-full py-3 px-4 rounded-lg"
-              onChange={updateProfileHandler}
             >
               Update Profile
             </button>

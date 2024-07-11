@@ -28,7 +28,7 @@ const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const { user, role, token } = useContext(authContext);
-
+ console.log(user);
   const handleStickyHeader = () => {
     window.addEventListener("scroll", () => {
       if (
@@ -83,7 +83,7 @@ const Header = () => {
                     </NavLink>
                   </li>
                 ))}
-                <button onClick={toggleMenu} className=" text-2xl md:hidden">
+                <button onClick={toggleMenu} className="text-2xl lg:hidden">
                   <IoMdCloseCircle />
                 </button>
               </ul>
@@ -93,14 +93,14 @@ const Header = () => {
               {token && user ? (
                 <div>
                   <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
-                    <figure className="w-[35px] h-[10px] rounded-full">
+                    <figure className="rounded-full">
                       <img
                         src={user?.photo}
                         alt="avatar"
                         className="rounded-full w-full"
                       />
                     </figure>
-                    <h2>{user?.name}</h2>
+                    {/* <h2>{user?.name}</h2> */}
                   </Link>
                 </div>
               ) : (
