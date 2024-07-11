@@ -28,7 +28,6 @@ const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const { user, role, token } = useContext(authContext);
- console.log(user);
   const handleStickyHeader = () => {
     window.addEventListener("scroll", () => {
       if (
@@ -93,7 +92,7 @@ const Header = () => {
               {token && user ? (
                 <div>
                   <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
-                    <figure className="rounded-full">
+                    <figure className="rounded-full h-10 w-10">
                       <img
                         src={user?.photo}
                         alt="avatar"
