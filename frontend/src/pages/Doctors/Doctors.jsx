@@ -12,7 +12,6 @@ const Doctors = () => {
 
   const handleSearch = () => {
     setQuery(query.trim());
-    console.log("handle search");
   };
 
   useEffect(() => {
@@ -20,6 +19,7 @@ const Doctors = () => {
       setDebounceQuery(query);
     }, 700);
     return () => clearTimeout(timeout);
+  
   }, [query]);
 
   const {
@@ -27,7 +27,6 @@ const Doctors = () => {
     loading,
     error,
   } = useFetchData(`${BASE_URL}/doctors?query=${debounceQuery}`);
-
   return (
     <>
       <section className="bg-[#fff9ea]">
@@ -57,8 +56,9 @@ const Doctors = () => {
           {error && <Error />}
           {!loading && !error && (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+              
               {doctors.map((doctor) => (
-                <DoctorCard doctor={doctor} key={doctor.id} />
+                <DoctorCard doctor={doctor} key={doctor._id} />
               ))}
             </div>
           )}
