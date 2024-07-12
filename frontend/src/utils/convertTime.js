@@ -13,7 +13,7 @@ const convertTime = (time) => {
     }
   }
   return (
-    hours.toString().padStart(2) + ":"
+    hours.toString().padStart(2) + ":" +
     minutes.toString.padStart(2, "0") +
     " " +
     meridian
