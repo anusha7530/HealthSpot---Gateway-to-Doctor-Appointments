@@ -89,11 +89,12 @@ export const login = async (req, res) => {
       user = doctor;
     }
     if (!user) {
-      return res
-        .status(404)
-        .json({message: "Invalid credentials" });
+      return res.status(404).json({ message: "Invalid credentials" });
     }
-    const isPasswordMatch = await bcrypt.compare(req.body.password, user.password);
+    const isPasswordMatch = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
 
     if (!isPasswordMatch) {
       return res
@@ -104,15 +105,13 @@ export const login = async (req, res) => {
     const token = generateToken(user);
 
     const { password, role, appointment, ...rest } = user._doc;
-    res
-      .status(200)
-      .json({
-        status: true,
-        message: "Successfully login",
-        token,
-        data: { ...rest },
-        role,
-      });
+    res.status(200).json({
+      status: true,
+      message: "Successfully login",
+      token,
+      data: { ...rest },
+      role,
+    });
   } catch (error) {
     res.status(500).json({ status: false, message: "Failed to login" });
   }

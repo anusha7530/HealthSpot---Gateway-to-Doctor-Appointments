@@ -7,12 +7,12 @@ export const getCheckoutSession = async (req, res) => {
   try {
     const doctor = await Doctor.findById(req.params.doctorId);
     const user = await User.findById(req.userId);
-    
+
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      mode: 'payment',
+      payment_method_types: ["card"],
+      mode: "payment",
       success_url: `${process.env.CLIENT_SITE_URL}/checkout-success`,
       cancel_url: `${req.protocol}://${req.get("host")}/doctors/${doctor.id}`,
       customer_email: user.email,
@@ -41,10 +41,11 @@ export const getCheckoutSession = async (req, res) => {
 
     await booking.save();
 
-    res.status(200).json({ success: true, messgae: "Successfully paid",session });
-
+    res
+      .status(200)
+      .json({ success: true, messgae: "Successfully paid", session });
   } catch (err) {
     // res.status(500).json({ success: false, message: "Error, creating checkout session" });
-    console.log(err)
+    console.log(err);
   }
 };

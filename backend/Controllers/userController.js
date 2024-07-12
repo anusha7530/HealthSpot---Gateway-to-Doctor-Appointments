@@ -71,13 +71,11 @@ export const getUserProfile = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
     const { password, ...rest } = user._doc;
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Profile info is getting",
-        data: { ...rest },
-      });
+    res.status(200).json({
+      success: true,
+      message: "Profile info is getting",
+      data: { ...rest },
+    });
   } catch (error) {
     res.status(500).json({ success: false, message: "Something went wrong" });
   }
@@ -93,13 +91,11 @@ export const getMyAppointments = async (req, res) => {
       "-password"
     );
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Appointments are getting",
-        data: doctors,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Appointments are getting",
+      data: doctors,
+    });
   } catch (error) {
     res.status(500).json({ success: false, message: "Something went wrong" });
   }
