@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Routers from "../routes/Routers";
@@ -8,11 +8,11 @@ const Layout = () => {
     <>
       <Header />
       <main>
-        <Routers/>
+        <Routers />
       </main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

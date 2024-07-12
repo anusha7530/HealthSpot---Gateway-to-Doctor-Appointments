@@ -230,10 +230,8 @@ const Home = () => {
             </div>
 
             <div className="w-full md:w-1/2">
-               <h2 className="heading">
-                Frequently Asked Questions(FAQs)
-               </h2>
-               <FaqList />
+              <h2 className="heading">Frequently Asked Questions(FAQs)</h2>
+              <FaqList />
             </div>
           </div>
         </div>
@@ -241,7 +239,7 @@ const Home = () => {
 
       <section>
         <div className="container">
-        <div className="xl:w-[470px] mx-auto">
+          <div className="xl:w-[470px] mx-auto">
             <h2 className="heading text-center">What our patients say?</h2>
             <p className="text_para text-center">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
@@ -249,7 +247,7 @@ const Home = () => {
               voluptas aliquid.
             </p>
           </div>
-          <Testimonial/>
+          <Testimonial />
         </div>
       </section>
     </>

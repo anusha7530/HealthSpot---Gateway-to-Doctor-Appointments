@@ -68,20 +68,30 @@ const Dashboard = () => {
 
                         <div className="flex items-center gap-[6px]">
                           <span className="flex items-center gap-[6px] text-headingColor text-[14px] leading-5 lg:text-[16px] lg:leading-6 font-semibold">
-                              <img src={starIcon} alt="*" />{data.averageRating}
+                            <img src={starIcon} alt="*" />
+                            {data.averageRating}
                           </span>
                           <span className="text-textColor text-[14px] leading-5 lg:text-[16px] lg:leading-6 font-semibold">
-                              ({data.totalRating})
+                            ({data.totalRating})
                           </span>
                         </div>
-                        <p className="text_para font-[15px] lg:max-w-[390px] leading-6">{data?.bio}</p>
+                        <p className="text_para font-[15px] lg:max-w-[390px] leading-6">
+                          {data?.bio}
+                        </p>
                       </div>
                     </div>
-                    <DoctorAbout name={data.name} about={data.about} qualifications={data.qualifications} experiences={data.experiences}/>
+                    <DoctorAbout
+                      name={data.name}
+                      about={data.about}
+                      qualifications={data.qualifications}
+                      experiences={data.experiences}
+                    />
                   </div>
                 )}
-                {tab === "appointments" && <Appointment appointments={data.appointments}/>}
-                {tab === "settings" && <Profile doctorData={data}/>}
+                {tab === "appointments" && (
+                  <Appointment appointments={data.appointments} />
+                )}
+                {tab === "settings" && <Profile doctorData={data} />}
               </div>
             </div>
           </div>

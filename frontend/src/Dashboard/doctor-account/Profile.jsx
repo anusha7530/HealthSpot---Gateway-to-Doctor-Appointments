@@ -37,7 +37,7 @@ const Profile = ({ doctorData }) => {
       about: doctorData?.about,
       photo: doctorData?.photo,
     });
-  },[doctorData])
+  }, [doctorData]);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -56,7 +56,7 @@ const Profile = ({ doctorData }) => {
         method: "PUT",
         headers: {
           "content-type": "application/json",
-           Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(formData),
       });

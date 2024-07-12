@@ -4,7 +4,6 @@ import { BASE_URL, token } from "./../../config";
 import { toast } from "react-toastify";
 
 const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
-
   const bookingHandler = async () => {
     try {
       const res = await fetch(
@@ -59,7 +58,9 @@ const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
           ))}
         </ul>
       </div>
-      <button onClick={bookingHandler} className="btn px-2 w-full rounded-md">Book Appointment</button>
+      <button onClick={bookingHandler} className="btn px-2 w-full rounded-md">
+        Book Appointment
+      </button>
     </div>
   );
 };

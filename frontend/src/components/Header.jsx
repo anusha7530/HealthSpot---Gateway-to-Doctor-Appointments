@@ -91,7 +91,13 @@ const Header = () => {
             <div className="flex items-center gap-4">
               {token && user ? (
                 <div>
-                  <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
+                  <Link
+                    to={`${
+                      role === "doctor"
+                        ? "/doctors/profile/me"
+                        : "/users/profile/me"
+                    }`}
+                  >
                     <figure className="rounded-full h-10 w-10">
                       <img
                         src={user?.photo}
@@ -109,7 +115,6 @@ const Header = () => {
                   </button>
                 </Link>
               )}
-              
 
               <span className="lg:hidden" onClick={toggleMenu}>
                 <BiMenu className="w-6 h-6 cursor-pointer" />
