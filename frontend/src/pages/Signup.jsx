@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import signupImg from "../assets/images/signup.gif";
 import { Link, useNavigate } from "react-router-dom";
-import { BASE_URL } from "../config";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 import uploadImageToCloudinary from "../utils/uploadCloudinary";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";

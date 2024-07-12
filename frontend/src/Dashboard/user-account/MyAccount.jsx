@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { authContext } from "./../../context/AuthContext";
 import useGetProfile from "../../hooks/useFetchData";
-import { BASE_URL } from "../../config";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 import MyBookings from "./MyBookings";
 import Profile from "./Profile";
 import Loading from "../../components/Loading";

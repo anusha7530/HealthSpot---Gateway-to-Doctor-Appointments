@@ -3,7 +3,7 @@ import star from "../../assets/images/Star.png";
 import DoctorAbout from "./DoctorAbout";
 import Feedback from "./Feedback";
 import SidePanel from "./SidePanel";
-import { BASE_URL } from "./../../config";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 import useFetchData from "./../../hooks/useFetchData";
 import Loader from "../../components/Loading";
 import Error from "../../components/Error";

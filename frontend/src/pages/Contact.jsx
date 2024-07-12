@@ -45,7 +45,7 @@ const Contact = () => {
               className="form_input mt-1"
             />
           </div>
-          <button type="submit" className="btn rounded sm:w-fit">
+          <button type="submit" className="btn rounded sm:w-fit" onClick={()=> alert("Your response has been successfully recorded.")}>
             Submit
           </button>
         </form>

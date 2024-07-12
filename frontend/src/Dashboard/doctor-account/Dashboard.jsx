@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Loader from "../../components/Loading";
 import Error from "../../components/Error";
 import useGetProfile from "../../hooks/useFetchData";
-import { BASE_URL } from "../../config";
 import Tabs from "./Tabs";
 import starIcon from "../../assets/images/Star.png";
 import DoctorAbout from "../../pages/Doctors/DoctorAbout";
 import Profile from "./Profile";
 import Appointment from "./Appointment";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(

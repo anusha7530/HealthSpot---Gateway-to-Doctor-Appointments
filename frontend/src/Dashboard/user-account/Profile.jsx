@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL, token } from "../../config";
+import { token } from "../../config";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";

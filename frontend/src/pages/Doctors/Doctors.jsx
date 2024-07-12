@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DoctorCard from "../../components/Doctors/DoctorCard";
 import Testimonial from "../../components/Testimonial";
-import { BASE_URL } from "./../../config";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 import useFetchData from "./../../hooks/useFetchData";
 import Loader from "../../components/Loading";
 import Error from "../../components/Error";

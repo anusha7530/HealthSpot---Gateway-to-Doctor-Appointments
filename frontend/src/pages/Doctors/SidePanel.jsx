@@ -1,7 +1,8 @@
 import React from "react";
 import convertTime from "../../utils/convertTime";
-import { BASE_URL, token } from "./../../config";
+import { token } from "./../../config";
 import { toast } from "react-toastify";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
   const bookingHandler = async () => {

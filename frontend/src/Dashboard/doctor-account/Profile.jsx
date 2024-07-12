@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
-import { BASE_URL, token } from "../../config";
+import { token } from "../../config";
 import { toast } from "react-toastify";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 const Profile = ({ doctorData }) => {
   const [formData, setFormData] = useState({

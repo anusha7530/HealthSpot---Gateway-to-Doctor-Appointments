@@ -1,5 +1,5 @@
 import useFetchData from "../../hooks/useFetchData";
-import { BASE_URL } from "../../config";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 import DoctorCard from "./../../components/Doctors/DoctorCard";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { useParams } from "react-router-dom";
-import { BASE_URL, token } from "../../config";
+import { token } from "../../config";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 const FeedbackForm = () => {
   const [rating, setRating] = useState(0);
