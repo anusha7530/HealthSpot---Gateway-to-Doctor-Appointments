@@ -18,7 +18,7 @@ const CheckoutSuccess = () => {
           <div className="py-10 text-center">
             <Link
               to="/home"
-              className="px-12 bg-buttonBgColor text-white font-semibold py-3"
+              className="px-12 bg-primaryColor text-white font-semibold py-3"
             >
               Go Back to Home
             </Link>
